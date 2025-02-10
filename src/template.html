@@ -3,23 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ToDo List</title>
 </head>
 <body>
     <div id="container">
         <div id="project-container">
             <header>
                 <h2>Projects</h2>
-                <button type="button">Create New</button>
+                <button type="button">Create New Project</button>
             </header>
             <div id="projects-display"></div>
         </div>
-        <div id="content-container"></div>
+        <div id="content-container">
+            <button type="button" id="new-todo">Create New ToDo</button>
+        </div>
     </div>
 
-    <dialog>
-        <label for="input-project-name"></label>
+    <dialog id="project-dialog">
+        <label for="input-project-name">Name</label>
         <input type="text" id="input-project-name">
+        <button type="button">Add</button>
+    </dialog>
+    <dialog id="todo-dialog">
+        <label for="todo-title">Title</label>
+        <input type="text" id="todo-title">
+        <label for="todo-desc">Description</label>
+        <input type="text" id="todo-desc">
+        <label for="todo-due">Due Date-time</label>
+        <input type="datetime-local" name="" id="todo-due">
+        <label for="todo-priority">Priority</label>
+        <select name="" id="todo-priority">
+            <option value="Casual">Casual</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Urgent">Urgent</option>
+        </select>
+        <label for="todo-project-select">Select Project</label>
+        <select name="" id="todo-project-select"></select>
         <button type="button">Add</button>
     </dialog>
 </body>

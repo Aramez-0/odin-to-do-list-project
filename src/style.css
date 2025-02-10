@@ -26,7 +26,7 @@ button:hover {
 }
 
 #project-container {
-    background-color: green;
+    background-color: rgb(17, 129, 17);
     width: 25vw;
     display: flex;
     flex-direction: column;
@@ -36,14 +36,36 @@ button:hover {
 #content-container {
     height: 100vh;
     width: 75vw;
-    background-color: blue;
+    background-color: grey;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#content-container button {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    margin: 5px;
 }
 
 .project {
-    border: solid black;
+    border: solid rgb(0, 0, 0);
     padding: 3px;
 }
 
 .project:hover {
     cursor: pointer;
+}
+
+.todo {
+    border: solid black;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+
+.todo p {
+    border-right: solid black;
 }
