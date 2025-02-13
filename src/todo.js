@@ -1,3 +1,6 @@
+// todo.js file
+import { project } from './project.js';
+
 export function todo() {
     function addToDo(title, desc, due, priority, projectName) {
         let todo = {
@@ -6,6 +9,9 @@ export function todo() {
             due,
             priority
         };
+        if (projectName !== true) {
+            projectName = 'Home'
+        }
 
         projectData[projectName].todos.push(todo);
 
@@ -38,18 +44,15 @@ export function todo() {
         let desc = document.querySelector('#todo-desc');
         let due = document.querySelector('#todo-due');
         let priority = document.querySelector('#todo-priority');
-
         let projectSelect = document.querySelector('#todo-project-select')
 
         let addBtn = document.querySelector('#todo-dialog button');
         addBtn.addEventListener('click', () => {
-            
-            let projectName = projectSelect.value
-            addToDo(title.value, desc.value, due.value, priority.value, projectName);
+            addToDo(title.value, desc.value, due.value, priority.value, projectSelect.value);
             title.value = ''
             desc.value = ''
             due.value = ''
-            priority.value = ''
+            priority.value = 'Casual'
             dialog.close();
         });
     };

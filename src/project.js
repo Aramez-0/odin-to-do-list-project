@@ -1,3 +1,6 @@
+// project.js file
+import { todo } from './todo.js';
+let todoModule = todo();
 export let project = function() {
 
     let projectData = {};
@@ -16,7 +19,6 @@ export let project = function() {
         pEle.textContent = name;
         projectContainer.appendChild(pEle);
 
-        // why is projectData.name undefined
         pEle.addEventListener('click', () => {
             let contentContainer = document.querySelector('#content-container');
             contentContainer.innerHTML = ''
@@ -25,15 +27,11 @@ export let project = function() {
             newBtn.id = 'new-todo'
             newBtn.textContent = 'Create New ToDo'
             contentContainer.appendChild(newBtn)
-            let getProjectData = projectData[name].todos
-            let projectTodods = getProjectData.forEach(element => {
-                let title = element.title
-                let desc = element.desc
-                let due = element.due
-                let priority = element.priority
-                addTodo(title, desc, due, priority)
-            });
-        })
+            for (let i = 0; i < projectData.length; i++) {
+                let { title, desc, due, priority } = projectData[i];
+                todoModule.addToDo(title, desc, due, priority, '');
+            };
+        });
 
         let projectSelect = document.querySelector('#todo-project-select');
         let option = document.createElement('option');
@@ -58,16 +56,7 @@ export let project = function() {
         });
     };
 
-    
-
     createProject()
     addProject('Home')
     return { addProject, createProject, projectData };
 };
-
-// list all to-do's in a project
-
-// to store to-do's 'inside' projects create empty array/objects/function(?)
-// and add to-do's to it. somehow display to-do on project click.
-// why does that sound both easy and hard \ probably hard.
-// deal with this tomorrow
