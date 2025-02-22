@@ -1,6 +1,6 @@
 // todo.js file
 import { project } from './project.js';
-
+import { projectData } from './project.js';
 export function todo() {
     function addToDo(title, desc, due, priority, projectName) {
         let todo = {
@@ -9,8 +9,8 @@ export function todo() {
             due,
             priority
         };
-        if (projectName !== true) {
-            projectName = 'Home'
+        if (!projectName) {
+            projectName = 'Home';
         }
 
         projectData[projectName].todos.push(todo);
@@ -59,3 +59,4 @@ export function todo() {
     createToDo()
     return { addToDo, createToDo }
 };
+

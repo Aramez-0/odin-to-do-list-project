@@ -1,9 +1,8 @@
 // project.js file
 import { todo } from './todo.js';
 let todoModule = todo();
+export let projectData = {};
 export let project = function() {
-
-    let projectData = {};
 
     function addProject(name) {
         projectData[name] = {
@@ -27,9 +26,9 @@ export let project = function() {
             newBtn.id = 'new-todo'
             newBtn.textContent = 'Create New ToDo'
             contentContainer.appendChild(newBtn)
-            for (let i = 0; i < projectData.length; i++) {
-                let { title, desc, due, priority } = projectData[i];
-                todoModule.addToDo(title, desc, due, priority, '');
+            for (let todo of projectData[name].todos) {
+                let { title, desc, due, priority } = todo;
+                todoModule.addToDo(title, desc, due, priority, name);
             };
         });
 
@@ -60,3 +59,4 @@ export let project = function() {
     addProject('Home')
     return { addProject, createProject, projectData };
 };
+
